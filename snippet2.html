@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Languages Wiki</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #e0e0e0;
+            background-color: #002b36; /* Solarized Dark background */
+        }
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #073642; /* Solarized Dark sidebar */
+            padding: 20px;
+            box-sizing: border-box;
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+            overflow-y: auto;
+            height: 100%;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+            padding-right: 30px; /* Ensure space to avoid horizontal scroll */
+        }
+        .section {
+            display: none;
+            margin-bottom: 20px;
+        }
+        .section.active {
+            display: block;
+        }
+        .section h2 {
+            margin-top: 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 10px;
+        }
+        .nested {
+            display: none;
+            padding-left: 20px;
+        }
+        .nested ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .nested li {
+            margin-bottom: 5px;
+        }
+        .directory-structure {
+            white-space: pre;
+            font-family: monospace;
+            color: #839496; /* Solarized base0 */
+            background-color: #073642; /* Solarized Dark background */
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #586e75; /* Solarized base1 */
+        }
+        .keyword {
+            color: #d33682; /* Magenta */
+        }
+        .comment {
+            color: #657b83; /* Solarized comments */
+        }
+        a {
+            color: #268bd2; /* Solarized blue */
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        code {
+            color:  #f3e5f5; /* Orange for code keywords */
+        }
+        .highlight-yellow {
+    color: #b58900; /* Solarized yellow */
+}
+.highlight-cyan {
+    color: #2aa198; /* Solarized cyan */
+}
+.highlight-red {
+    color: #dc322f; /* Solarized red */
+}
+.highlight-green {
+    color: #859900; /* Solarized green */
+}
+.highlight-orange {
+    color: #cb4b16; /* Solarized orange */
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h1>Index</h1>
+            <div>
+                <h2 onclick="toggleSection('xcode-section')">XCode</h2>
+                <div id="xcode-section" class="nested">
+                    <ul>
+                        <li><a href="#" onclick="showSubsection('xcode-search-features-section')">XCode</a></li>
+                    </ul>
+                </div>
+                <h2 onclick="toggleSection('swift-section')">Swift</h2>
+                <div id="swift-section" class="nested">
+                    <ul>
+                        <li><a href="#" onclick="showSubsection('ios-swift-section')">iOS</a></li>
+                        <li><a href="#" onclick="showSubsection('xcframeworks-section')">XCFramework</a></li>
+                        <li><a href="#" onclick="showSubsection('swift-functions-section')">Functions</a></li>
+                        <li><a href="#" onclick="showSubsection('swift-computed-properties-section')">Properties</a></li>
+                        <li><a href="#" onclick="showSubsection('type-swift-section')">Types</a></li>
+                        <li><a href="#" onclick="showSubsection('control-flow-swift-section')">Control Flow</a></li>
+                        <li><a href="#" onclick="showSubsection('loops-swift-section')">Loops</a></li>
+                        <li><a href="#" onclick="showSubsection('conditions-swift-section')">Conditions</a></li>
+                        <li><a href="#" onclick="showSubsection('additional-swift-section')">Additional Information</a></li>
+                        <li><a href="#" onclick="showSubsection('resources-swift-section')">Resources</a></li>
+                        <li><a href="#" onclick="showSubsection('faq-swift-section')">FAQ</a></li>
+                    </ul>
+                </div>
+                <h2 onclick="toggleSection('swiftui-section')">SwiftUi</h2>
+                <div id="swiftui-section" class="nested">
+                    <ul>
+                        <li><a href="#" onclick="showSubsection('swiftui-overview-section')">Overview</a></li>
+                        <li><a href="#" onclick="showSubsection('coordinators-controllers-section')">Coordinators e Controllers</a></li>
+                        <li><a href="#" onclick="showSubsection('swiftui-file-structure-section')">Views</a></li>
+                        <li><a href="#" onclick="showSubsection('swiftui-view-modifiers-section')">Modifiers</a></li>
+                        <li><a href="#" onclick="showSubsection('swiftui-stacks-section')">Stacks</a></li>
+                    </ul>
+                </div>
+                <h2 onclick="toggleSection('kmp-section')">KMP</h2>
+                <div id="kmp-section" class="nested">
+                    <ul>
+                        <li><a href="#" onclick="showSubsection('kmp-structure-section')">Project Structure</a></li>
+                        <li><a href="#" onclick="showSubsection('kmp-expect-actual-section')">APIs</a></li>
+                        <li><a href="#" onclick="showSubsection('pizza-chart-section')">Charts</a></li>
+                        <li><a href="#" onclick="showSubsection('bullet-points-section')">Diagram</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div id="ios-swift-section" class="section">
+                <h2>iOS, Swift, and SwiftUI</h2>
+                <p><strong>iOS</strong>: iOS is Apple's mobile operating system that powers devices such as iPhones, iPads, and iPod Touches. It provides a platform for developers to create and distribute applications specifically designed for these devices.</p>
+            
+                <p><strong>Swift</strong>: Swift is a programming language developed by Apple for building applications on iOS, macOS, watchOS, and tvOS. It is designed to be safe, fast, and expressive, with a syntax that is easy to read and write. Swift is used by developers to create a wide range of applications, from simple utilities to complex mobile apps.</p>
+            
+                <p><strong>SwiftUI</strong>: SwiftUI is a user interface toolkit introduced by Apple in 2019. It allows developers to build user interfaces for iOS, macOS, watchOS, and tvOS using a declarative syntax. With SwiftUI, developers can create dynamic, interactive, and visually appealing interfaces with less code compared to traditional approaches. SwiftUI also provides features like automatic layout, state management, and built-in animations.</p>
+            
+                <p>Swift and SwiftUI have become popular choices among iOS developers due to their modern features, performance, and ease of use. They provide powerful tools and frameworks for building robust and visually appealing applications for Apple devices.</p>
+            </div>
+            
+            <div id="xcframeworks-section" class="section">
+                <h2>XCFrameworks in iOS and Kotlin Multiplatform Projects</h2>
+                <p>In the context of an iOS and KMP (Kotlin Multiplatform) project, an <strong>XCFramework</strong> is a binary framework format introduced by Apple. It allows developers to distribute pre-compiled frameworks that can be used in iOS, macOS, and Catalyst apps.</p>
+            
+                <p>XCFrameworks are particularly useful in KMP projects because they enable sharing code between iOS and other platforms, such as Android, using Kotlin. With XCFrameworks, you can compile your Kotlin code into a framework that can be easily consumed by iOS apps written in Swift or Objective-C.</p>
+            
+                <p>By using XCFrameworks, you can encapsulate your Kotlin code and dependencies into a binary format that can be easily imported and used in your iOS project. This allows you to leverage the benefits of Kotlin Multiplatform, such as code sharing and reduced duplication, while still being able to integrate seamlessly with iOS-specific technologies and frameworks.</p>
+            
+                <p>Overall, XCFrameworks provide a convenient way to distribute and use Kotlin code in iOS projects, making it easier to build cross-platform applications using Kotlin Multiplatform.</p>
+            </div>
+            
+            <div id="swift-functions-section" class="section" style="padding: 20px;">
+                <h2 style="margin-bottom: 20px;">Funções em Swift</h2>
+                <p style="margin-bottom: 20px;">Certamente! Vamos explorar as funções em Swift e examinar sua estrutura, argumentos, rótulos e valores padrão.</p>
+                
+                <h3 style="margin-bottom: 15px;">Estrutura da Função</h3>
+                <p style="margin-bottom: 20px;">Uma função em Swift tem um nome, uma lista de parâmetros, um tipo de retorno opcional e um corpo. Aqui está a estrutura básica de uma função:</p>
+                
+                <pre style="background-color: #191970; padding: 10px; border-radius: 5px; overflow-x: auto;">
+                    <code class="language-swift">
+                        <span class="keyword">func</span> nomeDaFuncao(parametro1: Tipo, parametro2: Tipo, ...) -> TipoDeRetorno {
+                            // Corpo da função
+                            // Realizar operações e retornar um valor (se aplicável)
+                            <span class="keyword">return</span> valor
+                        }
+                    </code>
+                </pre>
+                
+                <ul style="padding-left: 20px; line-height: 1.8; margin-bottom: 20px;">
+                    <li style="margin-bottom: 10px;"><span class="keyword">func</span>: A palavra-chave usada para definir uma função.</li>
+                    <li style="margin-bottom: 10px;"><span class="identifier">nomeDaFuncao</span>: O nome da função, que deve ser descritivo e seguir as convenções de nomenclatura do Swift.</li>
+                    <li style="margin-bottom: 10px;"><span class="identifier">parametro1</span>, <span class="identifier">parametro2</span>, ...: Os parâmetros que a função recebe, cada um com um nome e um tipo.</li>
+                    <li style="margin-bottom: 10px;"><span class="identifier">TipoDeRetorno</span>: O tipo de valor que a função retorna. Se a função não retornar um valor, <span class="keyword">Void</span> é usado.</li>
+                </ul>
+                
+                <h3 style="margin-bottom: 15px;">Argumentos da Função</h3>
+                <p style="margin-bottom: 20px;">Os argumentos da função são os valores passados para uma função quando ela é chamada. Em Swift, cada argumento tem um nome de parâmetro e um rótulo de argumento. O nome do parâmetro é usado dentro da função, enquanto o rótulo do argumento é usado ao chamar a função. Aqui está um exemplo:</p>
+                
+                <pre style="background-color: #191970; padding: 10px; border-radius: 5px; overflow-x: auto;">
+                    <code class="language-swift">
+                        <span class="keyword">func</span> saudacao(pessoa: <span class="type">String</span>, <span class="keyword">com</span> saudacao: <span class="type">String</span>) {
+                            <span class="keyword">print</span>("\(saudacao), \(pessoa)!")
+                        }
+                        
+                        saudacao(pessoa: "João", <span class="keyword">com</span>: "Olá")
+                    </code>
+                </pre>
+                
+                <p style="margin-bottom: 20px;">No exemplo acima, <span class="identifier">pessoa</span> e <span class="identifier">saudacao</span> são os nomes dos parâmetros, enquanto <span class="identifier">pessoa:</span> e <span class="identifier">com:</span> são os rótulos dos argumentos. Ao chamar a função <span class="identifier">saudacao</span>, os rótulos dos argumentos são usados para tornar a chamada da função mais legível.</p>
+                
+                <h3 style="margin-bottom: 15px;">Valores Padrão para Parâmetros</h3>
+                <p style="margin-bottom: 20px;">Em Swift, você pode fornecer valores padrão para os parâmetros da função. Isso permite que você chame a função sem fornecer explicitamente um valor para esse parâmetro se o valor padrão for suficiente. Aqui está um exemplo:</p>
+                
+                <pre style="background-color: #191970; padding: 10px; border-radius: 5px; overflow-x: auto;">
+                    <code class="language-swift">
+                        <span class="keyword">func</span> saudacao(pessoa: <span class="type">String</span>, <span class="keyword">com</span> saudacao: <span class="type">String</span> = "Olá") {
+                            <span class="keyword">print</span>("\(saudacao), \(pessoa)!")
+                        }
+                        
+                        saudacao(pessoa: "João") // Saída: Olá, João!
+                        saudacao(pessoa: "Ana", <span class="keyword">com</span>: "Oi") // Saída: Oi, Ana!
+                    </code>
+                </pre>
+                
+                <p>No exemplo acima, a função <span class="identifier">saudacao</span> tem um valor padrão de <span class="string">"Olá"</span> para o parâmetro <span class="identifier">saudacao</span>. Ao chamar a função, se você não fornecer um valor para <span class="identifier">saudacao</span>, o valor padrão será utilizado.</p>
+                
+                <p style="margin-top: 20px;">Estes são alguns dos aspectos principais das funções em Swift. Funções são blocos essenciais em Swift, permitindo que você encapsule código reutilizável e execute tarefas específicas. Elas oferecem flexibilidade com parâmetros, rótulos de argumentos e valores padrão, tornando-as versáteis e expressivas.</p>
+            </div>
+            
+            <div id="swift-computed-properties-section" class="section">
+                <h2>Propriedades Computadas em Swift</h2>
+                <p>Em Swift, você pode definir getters e setters personalizados para propriedades usando o conceito de <strong>propriedades computadas</strong>. Propriedades computadas permitem que você defina uma lógica personalizada para acessar (getter) e modificar (setter) o valor de uma propriedade. Isso é semelhante ao conceito de getters e setters em Kotlin.</p>
+            
+                <p>Aqui está um exemplo de uma propriedade computada em Swift:</p>
+            
+                <pre style="background-color: #191970; padding: 10px; border-radius: 5px; overflow-x: auto;"><code class="language-swift">
+            <span class="keyword">struct</span> Circle {
+                <span class="keyword">var</span> radius: <span class="type">Double</span>
+                
+                <span class="keyword">var</span> area: <span class="type">Double</span> {
+                    <span class="keyword">get</span> {
+                        <span class="keyword">return</span> <span class="type">Double</span>.pi * radius * radius
+                    }
+                    <span class="keyword">set</span>(newArea) {
+                        radius = <span class="keyword">sqrt</span>(newArea / <span class="type">Double</span>.pi)
+                    }
+                }
+            }
+            
+            <span class="keyword">var</span> circle = Circle(radius: 5.0)
+            <span class="keyword">print</span>(circle.area) // Output: 78.53981633974483
+            
+            circle.area = 100.0
+            <span class="keyword">print</span>(circle.radius) // Output: 5.641895835477563
+                </code></pre>
+            
+                <p>No exemplo acima, o <span class="identifier">struct</span> <span class="identifier">Circle</span> tem uma propriedade computada <span class="identifier">area</span>. O bloco <span class="keyword">get</span> calcula e retorna a área do círculo com base na propriedade <span class="identifier">radius</span>. O bloco <span class="keyword">set</span> permite que você modifique a propriedade <span class="identifier">radius</span> com base em um novo valor de área.</p>
+            
+                <p>Ao acessar a propriedade <span class="identifier">area</span>, o bloco <span class="keyword">get</span> é executado para calcular e retornar a área. Ao modificar a propriedade <span class="identifier">area</span>, o bloco <span class="keyword">set</span> é executado para atualizar a propriedade <span class="identifier">radius</span> de acordo.</p>
+            
+                <p>Propriedades computadas fornecem uma maneira de definir lógica personalizada para acessar e modificar o valor de uma propriedade, dando-lhe controle sobre como a propriedade se comporta. Elas permitem encapsular cálculos ou transformações complexas dentro da própria propriedade, proporcionando uma interface limpa e intuitiva para trabalhar.</p>
+            </div>
+            
+            <div id="swift-section-content" class="section">
+                <h2>Swift</h2>
+                <p>This section provides information about the Swift programming language.</p>
+            </div>
+
+            <div id="type-swift-section" class="section">
+                <h2>Types in Swift</h2>
+                <p>Swift provides a rich set of data types for working with different kinds of data. The primary types include:</p>
+                <ul>
+                    <li><span class="keyword">Int</span>: Represents integer values.</li>
+                    <li><span class="keyword">Double</span> and <span class="keyword">Float</span>: Represent floating-point numbers.</li>
+                    <li><span class="keyword">String</span>: Represents a sequence of characters.</li>
+                    <li><span class="keyword">Bool</span>: Represents a Boolean value, either <code>true</code> or <code>false</code>.</li>
+                    <li><span class="keyword">Array</span>: Represents a collection of values of the same type.</li>
+                    <li><span class="keyword">Dictionary</span>: Represents a collection of key-value pairs.</li>
+                </ul>
+
+                <h3>Optional Types</h3>
+                <p>Optional types in Swift allow a variable to hold either a value or <code>nil</code> (no value). This is useful for cases where a variable may not have a value. An optional is defined by appending a question mark <code>?</code> to the type:</p>
+                <pre style="background-color: #191970; padding: 10px; border-radius: 5px; overflow-x: auto;"><code class="comment">// Example of optional types in Swift</code>
+<code>var name: <span class="keyword">String</span>? = "Alice" // An optional <span class="keyword">String</span>
+name = <span class="keyword">nil</span> // Now the variable has no value
+</code></pre>
+
+                <h3>Unwrapping Optionals</h3>
+                <p>Unwrapping is the process of accessing the value inside an optional. There are several ways to unwrap optionals:</p>
+                <ul>
+                    <li><strong>Forced Unwrapping</strong>: Use the exclamation mark <code>!</code> to force unwrap an optional. This should be used cautiously as it can cause runtime crashes if the optional is <code>nil</code>.</li>
+                    <pre style="background-color: #191970; padding: 10px; border-radius: 5px; overflow-x: auto;"><code class="comment">// Forced unwrapping</code>
+<code>let unwrappedName: <span class="keyword">String</span> = name! // Assumes name is not <span class="keyword">nil</span></code></pre>
+
+                    <li><strong>Optional Binding</strong>: Use <code>if let</code> or <code>guard let</code> to safely unwrap an optional. This method checks if the optional contains a value and binds it to a new constant if it does.</li>
+                    <pre style="background-color: #191970; padding: 10px; border-radius: 5px; overflow-x: auto;"><code class="comment">// Optional binding with if let</code>
+<code>if let unwrappedName = name {
+    print("Name is \(unwrappedName)")
+} else {
+    print("Name is <span class="keyword">nil</span>")
+}</code></pre>
+
+<pre style="background-color: #191970; padding: 10px; border-radius: 5px; overflow-x: auto;"><code class="comment">// Optional binding with guard let</code>
+<code>func greet() {
+    guard let unwrappedName = name else {
+        print("Name is <span class="keyword">nil</span>")
+        return
+    }
+    print("Hello, \(unwrappedName)")
+}</code></pre>
+                </ul>
+
+                <h3>Arrays</h3>
+                <p>Arrays in Swift are used to store ordered collections of values. You can create an array with specific types, add elements to it, and access elements by their index. Here are some examples:</p>
+                <pre style="background-color: #191970; padding: 10px; border-radius: 5px; overflow-x: auto;"><code class="comment">// Creating an array of integers</code>
+<code>var numbers: [<span class="keyword">Int</span>] = [1, 2, 3, 4, 5]</code></pre>
+
+<pre style="background-color: #191970; padding: 10px; border-radius: 5px; overflow-x: auto;"><code class="comment">// Accessing an element in the array</code>
+<code>let firstNumber = numbers[0] // 1</code></pre>
+
+<pre style="background-color: #191970; padding: 10px; border-radius: 5px; overflow-x: auto;"><code class="comment">// Adding an element to the array</code>
+<code>numbers.append(6)</code></pre>
+
+<pre style="background-color: #191970; padding: 10px; border-radius: 5px; overflow-x: auto;"><code class="comment">// Iterating over an array</code>
+<code>for number in numbers {
+    print(number)
+}</code></pre>
+
+<pre style="background-color: #191970; padding: 10px; border-radius: 5px; overflow-x: auto;"><code class="comment">// Creating an array with a default value</code>
+<code>let defaultArray = Array(repeating: 0, count: 5) // [0, 0, 0, 0, 0]</code></pre>
+            </div>
+
+            <div id="control-flow-swift-section" class="section">
+                <h2>Control Flow in Swift</h2>
+                <p>Swift provides several control flow constructs to control the execution of code:</p>
+                <ul>
+                    <li><strong>if</strong>: Executes code if a condition is true.</li>
+                    <li><strong>if-else</strong>: Executes one block if true, another if false.</li>
+                    <li><strong>switch</strong>: Matches a value against cases and executes corresponding code.</li>
+                    <li><strong>guard</strong>: Used for early exit if a condition is not met.</li>
+                </ul>
+
+                <h3>Examples</h3>
+                <ul>
+                    <li><strong>if</strong>: Checks if a condition is true and executes code accordingly.</li>
+                    <pre style="background-color: #191970; padding: 10px; border-radius: 5px; overflow-x: auto;"><code class="comment">// Example of if statement</code>
+<code>let number = 10
+
+if number > 5 {
+    print("Number is greater than 5")
+} else {
+    print("Number is 5 or less")
+}</code></pre>
+
+                    <li><strong>switch</strong>: Provides a way to perform different actions based on the value of a variable.</li>
+                    <pre style="background-color: #191970; padding: 10px; border-radius: 5px; overflow-x: auto;"><code class="comment">// Example of switch statement</code>
+<code>let day = "Saturday"
+
+switch day {
+case "Saturday", "Sunday":
+    print("It's the weekend")
+default:
+    print("It's a weekday")
+}</code></pre>
+
+                    <li><strong>guard</strong>: Used for early exits if a condition is not met, typically used in functions.</li>
+                    <pre style="background-color: #191970; padding: 10px; border-radius: 5px; overflow-x: auto;"><code class="comment">// Example of guard statement</code>
+<code>func processOrder(order: <span class="keyword">String</span>?) {
+    guard let unwrappedOrder = order else {
+        print("Order is <span class="keyword">nil</span>")
+        return
+    }
+    print("Processing order: \(unwrappedOrder)")
+}</code></pre>
+
+                    <li><strong>if let</strong>: Used for optional binding, allowing you to unwrap optionals in a conditional statement.</li>
+                    <pre style="background-color: #191970; padding: 10px; border-radius: 5px; overflow-x: auto;"><code class="comment">// Example of if let statement</code>
+<code>if let unwrappedOrder = order {
+    print("Order is \(unwrappedOrder)")
+} else {
+    print("Order is <span class="keyword">nil</span>")
+}</code></pre>
+                </ul>
+            </div>
+
+            <div id="loops-swift-section" class="section">
+                <h2>Loops in Swift</h2>
+                <p>Swift provides several types of loops to execute code repeatedly:</p>
+                <ul>
+                    <li><strong>for-in</strong>: Iterates over a sequence, such as ranges, arrays, or dictionaries.</li>
+                    <pre style="background-color: #191970; padding: 10px; border-radius: 5px; overflow-x: auto;"><code class="comment">// Example of for-in loop</code>
+<code>for i in 1...5 {
+    print(i) // Prints numbers from 1 to 5
+}</code></pre>
+
+<pre style="background-color: #191970; padding: 10px; border-radius: 5px; overflow-x: auto;"><code class="comment">// Example of for-in loop with array</code>
+<code>let names = ["Alice", "Bob", "Charlie"]
+
+for name in names {
+    print(name)
+}</code></pre>
+
+                    <li><strong>while</strong>: Executes a block of code as long as a condition is true.</li>
+                    <pre style="background-color: #191970; padding: 10px; border-radius: 5px; overflow-x: auto;"><code class="comment">// Example of while loop</code>
+<code>var i = 1
+while i <= 5 {
+    print(i)
+    i += 1
+}</code></pre>
+
+                    <li><strong>repeat-while</strong>: Similar to while, but executes the block of code at least once before checking the condition.</li>
+                    <pre style="background-color: #191970; padding: 10px; border-radius: 5px; overflow-x: auto;"><code class="comment">// Example of repeat-while loop</code>
+<code>var i = 1
+repeat {
+    print(i)
+    i += 1
+} while i <= 5</code></pre>
+                </ul>
+            </div>
+
+            <div id="conditions-swift-section" class="section">
+                <h2>Conditions in Swift</h2>
+                <p>Conditions help control the flow of your program based on certain criteria. Swift supports:</p>
+                <ul>
+                    <li><strong>if</strong>: Executes code if a condition is true.</li>
+                    <li><strong>if-else</strong>: Executes one block if true, another if false.</li>
+                    <li><strong>switch</strong>: Matches a value against cases and executes corresponding code.</li>
+                    <li><strong>guard</strong>: Used for early exit if a condition is not met.</li>
+                </ul>
+                <p>Example:</p>
+                <pre style="background-color: #191970; padding: 10px; border-radius: 5px; overflow-x: auto;">><code class="comment">// Example of conditions in Swift</code>
+<code>let temperature = 25
+
+if temperature > 30 {
+    print("It's hot outside")
+} else if temperature > 20 {
+    print("It's warm outside")
+} else {
+    print("It's cold outside")
+}
+
+let day = "Monday"
+
+switch day {
+case "Saturday", "Sunday":
+    print("Weekend")
+default:
+    print("Weekday")
+}
+
+// Using guard for early exit
+func checkTemperature(temp: <span class="keyword">Int</span>?) {
+    guard let temp = temp, temp > 0 else {
+        print("Temperature is <span class="keyword">nil</span> or invalid")
+        return
+    }
+    print("Temperature is \(temp)")
+}
+</code></pre>
+            </div>
+
+            <div id="additional-swift-section" class="section">
+                <h2>Additional Information on Swift</h2>
+                <p>Swift is a powerful and intuitive programming language for iOS, macOS, watchOS, and tvOS. Some additional features include:</p>
+                <ul>
+                    <li><strong>Optionals</strong>: Represents a variable that may hold a value or be <code>nil</code>.</li>
+                    <li><strong>Protocols</strong>: Define a blueprint of methods, properties, and other requirements that suit a particular piece of functionality.</li>
+                    <li><strong>Extensions</strong>: Allow you to add new functionality to an existing class, struct, or enum.</li>
+                    <li><strong>Generics</strong>: Enable you to write flexible and reusable code that can work with any type.</li>
+                </ul>
+            </div>
+
+            <div id="resources-swift-section" class="section">
+                <h2>Resources for Swift</h2>
+                <p>Here are some recommended resources for learning Swift:</p>
+                <ul>
+                    <li><a href="https://developer.apple.com/swift/" target="_blank">Swift Official Documentation</a></li>
+                    <li><a href="https://www.hackingwithswift.com/" target="_blank">Hacking with Swift</a></li>
+                    <li><a href="https://www.raywenderlich.com/swift" target="_blank">Ray Wenderlich - Swift Tutorials</a></li>
+                    <li><a href="https://www.udemy.com/topic/swift/" target="_blank">Udemy Swift Courses</a></li>
+                </ul>
+            </div>
+
+            <div id="faq-swift-section" class="section">
+                <h2>Swift FAQ</h2>
+                <p>Here are some frequently asked questions about Swift:</p>
+                <ul>
+                    <li><strong>What is Swift?</strong> Swift is a powerful and easy-to-learn programming language for iOS, macOS, watchOS, and tvOS development.</li>
+                    <li><strong>Is Swift open source?</strong> Yes, Swift is open-source and has a vibrant community of developers.</li>
+                    <li><strong>Can I use Swift for server-side development?</strong> Yes, Swift can be used for server-side development with frameworks like Vapor and Kitura.</li>
+                    <li><strong>How do I get started with Swift?</strong> You can get started with Swift by exploring the official documentation, online tutorials, and courses.</li>
+                </ul>
+            </div>
+
+            <div id="kmp-structure-section" class="section" style="padding: 20px;">
+                <h2>Estrutura do Projeto para KMP</h2>
+                <p>A estrutura típica de um projeto Kotlin Multiplatform (KMP) é a seguinte:</p>
+                <div class="directory-structure" style="padding-left: 20px; line-height: 1.6;">
+                    <span class="keyword">project-name</span>/
+                    <br>├── <span class="keyword">build.gradle.kts</span>
+                    <br>├── <span class="keyword">settings.gradle.kts</span>
+                    <br>├── <span class="keyword">shared</span>/
+                    <br>│   ├── <span class="keyword">src</span>/
+                    <br>│   │   ├── <span class="keyword">commonMain</span>/
+                    <br>│   │   ├── <span class="keyword">androidMain</span>/
+                    <br>│   │   └── <span class="keyword">iosMain</span>/
+                    <br>│   ├── <span class="keyword">build.gradle.kts</span>
+                    <br>│   └── <span class="keyword">src</span>/
+                    <br>│       └── <span class="keyword">commonTest</span>/
+                    <br>├── <span class="keyword">androidApp</span>/
+                    <br>│   ├── <span class="keyword">src</span>/
+                    <br>│   │   ├── <span class="keyword">main</span>/
+                    <br>│   │   └── <span class="keyword">test</span>/
+                    <br>│   └── <span class="keyword">build.gradle.kts</span>
+                    <br>└── <span class="keyword">iosApp</span>/
+                    <br>    └── <span class="keyword">build.gradle.kts</span>
+                </div>
+            
+                <p style="margin-top: 20px;">Em um projeto Kotlin Multiplatform (KMP), os conjuntos de fontes são usados para organizar e gerenciar o código-fonte para diferentes plataformas. Cada conjunto de fontes representa uma plataforma específica ou uma combinação de plataformas e contém o código que é específico para essa plataforma. Aqui estão algumas considerações e conceitos importantes relacionados aos conjuntos de fontes em um projeto KMP:</p>
+            
+                <ol style="padding-left: 20px; line-height: 1.6;">
+                    <li><strong>Conjuntos de Fontes Específicos da Plataforma:</strong>
+                        <ul style="margin-top: 10px; margin-bottom: 10px; padding-left: 20px;">
+                            <li>Os conjuntos de fontes são tipicamente organizados com base nas plataformas-alvo para as quais você está desenvolvendo, como JVM, Android, iOS ou JavaScript.</li>
+                            <li>Cada conjunto de fontes específico da plataforma contém o código que é específico para essa plataforma, incluindo implementações específicas da plataforma, componentes de UI ou APIs específicas da plataforma.</li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>Conjuntos de Fontes Compartilhados:</strong>
+                        <ul style="margin-top: 10px; margin-bottom: 10px; padding-left: 20px;">
+                            <li>Os conjuntos de fontes compartilhados contêm o código que é compartilhado entre várias plataformas.</li>
+                            <li>O código compartilhado inclui lógica de negócios, modelos de dados, funções utilitárias ou qualquer código que não tenha dependências específicas da plataforma.</li>
+                            <li>O código compartilhado é escrito uma vez e pode ser usado em diferentes plataformas, reduzindo a duplicação de código e promovendo o reuso de código.</li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>Configuração de Conjuntos de Fontes:</strong>
+                        <ul style="margin-top: 10px; margin-bottom: 10px; padding-left: 20px;">
+                            <li>Os conjuntos de fontes são configurados no sistema de build (como Gradle ou Maven) usando o plugin Kotlin Multiplatform.</li>
+                            <li>O sistema de build permite definir os diretórios de origem, dependências e outras configurações para cada conjunto de fontes.</li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>Dependências de Conjuntos de Fontes:</strong>
+                        <ul style="margin-top: 10px; margin-bottom: 10px; padding-left: 20px;">
+                            <li>Os conjuntos de fontes podem ter dependências em outros conjuntos de fontes ou bibliotecas externas.</li>
+                            <li>Por exemplo, um conjunto de fontes compartilhado pode depender de um conjunto de fontes específico da plataforma para acessar APIs ou recursos específicos da plataforma.</li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>Compilação e Distribuição:</strong>
+                        <ul style="margin-top: 10px; margin-bottom: 10px; padding-left: 20px;">
+                            <li>Os conjuntos de fontes são compilados separadamente para cada plataforma alvo durante o processo de build.</li>
+                            <li>Os artefatos resultantes (como arquivos JAR, frameworks ou pacotes JavaScript) são gerados para cada plataforma e podem ser distribuídos e consumidos por projetos específicos da plataforma.</li>
+                        </ul>
+                    </li>
+                </ol>
+            
+                <p style="margin-top: 20px;">Entender e gerenciar conjuntos de fontes é crucial em um projeto KMP, pois permite organizar e estruturar seu código de forma eficaz. Ajuda a manter uma clara separação entre código compartilhado e específico da plataforma, permitindo o reuso de código e facilitando o desenvolvimento e a manutenção de projetos multiplataforma.</p>
+            
+                <h3 style="margin-top: 20px;">Diretórios <span class="keyword">common</span>, <span class="keyword">iosMain</span> e <span class="keyword">androidMain</span></h3>
+                
+                <p style="margin-top: 20px;">Em um projeto Kotlin Multiplatform (KMP) que visa principalmente as plataformas iOS e Android, a estrutura de diretórios e as configurações dos scripts de build Gradle são configuradas para atender aos requisitos específicos de cada plataforma. Vamos discutir as diferenças entre os diretórios <span class="keyword">common</span>, <span class="keyword">iosMain</span> e <span class="keyword">androidMain</span>, bem como suas configurações correspondentes dos scripts Gradle:</p>
+            
+                <ol style="padding-left: 20px; line-height: 1.6;">
+                    <li><strong>Diretório <span class="keyword">common</span>:</strong>
+                        <ul style="margin-top: 10px; margin-bottom: 10px; padding-left: 20px;">
+                            <li>O diretório <span class="keyword">common</span> contém o código compartilhado que é independente da plataforma e pode ser usado em todas as plataformas-alvo.</li>
+                            <li>Inclui tipicamente lógica de negócios, modelos de dados, funções utilitárias ou qualquer código que não tenha dependências específicas da plataforma.</li>
+                            <li>O código no diretório <span class="keyword">common</span> é escrito uma vez e pode ser acessado tanto pelas plataformas iOS quanto Android.</li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>Diretório <span class="keyword">iosMain</span>:</strong>
+                        <ul style="margin-top: 10px; margin-bottom: 10px; padding-left: 20px;">
+                            <li>O diretório <span class="keyword">iosMain</span> contém o código e recursos específicos da plataforma iOS.</li>
+                            <li>Inclui implementações específicas para iOS, componentes de UI, APIs específicas da plataforma ou qualquer outro código que é específico para iOS.</li>
+                            <li>O código no diretório <span class="keyword">iosMain</span> pode acessar o código compartilhado no diretório <span class="keyword">common</span>.</li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>Diretório <span class="keyword">androidMain</span>:</strong>
+                        <ul style="margin-top: 10px; margin-bottom: 10px; padding-left: 20px;">
+                            <li>O diretório <span class="keyword">androidMain</span> contém o código e recursos específicos da plataforma Android.</li>
+                            <li>Inclui implementações específicas para Android, componentes de UI, APIs específicas da plataforma ou qualquer outro código que é específico para Android.</li>
+                            <li>O código no diretório <span class="keyword">androidMain</span> também pode acessar o código compartilhado no diretório <span class="keyword">common</span>.</li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>Configurações do Script de Build Gradle:</strong>
+                        <ul style="margin-top: 10px; margin-bottom: 10px; padding-left: 20px;">
+                            <li>No script de build Gradle, você define os conjuntos de fontes e dependências para cada plataforma.</li>
+                            <li>O bloco <code>sourceSets</code> no script de build é usado para configurar os diretórios de origem para cada conjunto de fontes específico da plataforma.</li>
+                            <li>Por exemplo, você pode configurar o bloco <code>sourceSets</code> da seguinte forma:</li>
+                            
+                            <pre style="background-color: #f5f5f5; padding: 10px; border-radius: 5px;">
+            <code>
+            sourceSets {
+                commonMain {
+                    // Configuração para o conjunto de fontes comum
+                }
+                iosMain {
+                    // Configuração para o conjunto de fontes iOS
+                }
+                androidMain {
+                    // Configuração para o conjunto de fontes Android
+                }
+            }
+            </code>
+                            </pre>
+            
+                            <li>As dependências para cada plataforma podem ser especificadas usando o bloco <code>dependencies</code> no script de build.</li>
+                            <li>Você pode definir dependências em outros conjuntos de fontes ou bibliotecas externas específicas para cada plataforma.</li>
+                        </ul>
+                    </li>
+                </ol>
+            
+                <p style="margin-top: 20px;">Ao organizar o código nos diretórios <span class="keyword">common</span>, <span class="keyword">iosMain</span> e <span class="keyword">androidMain</span>, e configurar o script Gradle de acordo, você pode gerenciar eficazmente o código específico da plataforma e compartilhado em um projeto KMP. Essa estrutura permite aproveitar os benefícios do compartilhamento de código, ao mesmo tempo que atende aos requisitos e diferenças específicas entre as plataformas iOS e Android.</p>
+            </div>
+            
+
+            <div id="swiftui-overview-section" class="section" style="padding: 20px;">
+                <h2 style="margin-bottom: 20px;">Introdução ao SwiftUI</h2>
+                
+                <p style="margin-bottom: 20px;">Claro! Fico feliz em falar sobre o SwiftUI. É um framework inovador desenvolvido pela Apple para construir interfaces de usuário em todas as plataformas Apple, incluindo iOS, macOS, watchOS e tvOS. O SwiftUI oferece uma sintaxe declarativa, o que significa que você pode descrever como sua interface de usuário deve parecer e se comportar, e o SwiftUI cuida do resto.</p>
+                
+                <p style="margin-bottom: 20px;">Alguns recursos principais do SwiftUI incluem:</p>
+                
+                <ul style="padding-left: 20px; line-height: 1.8; margin-bottom: 20px;">
+                    <li style="margin-bottom: 10px;"><strong>Sintaxe Declarativa</strong>: Com o SwiftUI, você pode descrever sua interface de usuário usando uma sintaxe declarativa simples e intuitiva. Isso torna mais fácil entender e manter seu código.</li>
+                    <li style="margin-bottom: 10px;"><strong>Pré-visualização em Tempo Real</strong>: O SwiftUI fornece um recurso de pré-visualização ao vivo que permite ver as alterações que você faz em sua interface de usuário em tempo real. Isso torna mais rápido e eficiente iterar em seus designs.</li>
+                    <li style="margin-bottom: 10px;"><strong>Suporte Multiplataforma</strong>: O SwiftUI permite que você construa interfaces de usuário que podem ser executadas em várias plataformas Apple, como iOS, macOS, watchOS e tvOS. Isso permite compartilhar código e recursos entre diferentes plataformas, economizando tempo de desenvolvimento.</li>
+                    <li style="margin-bottom: 10px;"><strong>Layout Automático</strong>: O SwiftUI cuida do layout da sua interface de usuário para você. Ele usa um sistema de layout flexível e adaptativo que ajusta automaticamente a interface de usuário com base no espaço disponível e na orientação do dispositivo.</li>
+                    <li style="margin-bottom: 10px;"><strong>Controles Nativos</strong>: O SwiftUI fornece uma ampla gama de controles integrados, como botões, campos de texto, deslizadores e muito mais. Esses controles são projetados para parecer e se sentir nativos em cada plataforma, proporcionando uma experiência de usuário consistente.</li>
+                    <li><strong>Integração com o Combine Framework</strong>: O SwiftUI integra-se perfeitamente com o Combine framework, que é o framework da Apple para manipulação de eventos assíncronos e fluxos de dados. Isso permite gerenciar e reagir facilmente a mudanças no estado do seu aplicativo.</li>
+                </ul>
+                
+                <p>No geral, o SwiftUI oferece uma maneira moderna e eficiente de construir interfaces de usuário para plataformas Apple. Ele simplifica o processo de desenvolvimento, promove a reutilização de código e proporciona uma excelente experiência para o usuário.</p>
+            </div>
+            
+
+            <div id="coordinators-controllers-section" class="section">
+                <h2>Coordenadores e Controladores em SwiftUI</h2>
+                <p>Coordenadores e controladores não são específicos do SwiftUI, mas são conceitos comumente usados no desenvolvimento de aplicativos iOS, incluindo ao trabalhar com SwiftUI.</p>
+            
+                <ul>
+                    <li><strong>Coordenadores</strong>: Coordenadores são um padrão de design comumente usado no desenvolvimento de aplicativos iOS para lidar com navegação e fluxo entre diferentes telas ou visualizações. No SwiftUI, você pode usar coordenadores para gerenciar a interação entre visualizações SwiftUI e visualizações ou controladores de visualização UIKit. Coordenadores atuam como intermediários, conectando o SwiftUI e o UIKit quando necessário.</li>
+                    
+                    <li><strong>Controladores</strong>: Controladores, ou controladores de visualização, são uma parte integral do desenvolvimento de aplicativos iOS. Eles são responsáveis por gerenciar a apresentação e o comportamento das visualizações em um aplicativo. No SwiftUI, você ainda pode usar controladores de visualização quando necessário, especialmente se precisar integrar componentes UIKit existentes ou aproveitar funcionalidades específicas do UIKit que ainda não estão disponíveis no SwiftUI.</li>
+                </ul>
+            
+                <p>Embora o SwiftUI encoraje o uso de sua própria hierarquia de visualizações e sintaxe declarativa, pode haver casos em que você precise trabalhar com componentes UIKit ou aproveitar funcionalidades existentes do UIKit. Nesses casos, coordenadores e controladores podem ajudar a facilitar a integração entre SwiftUI e UIKit.</p>
+            
+                <p>Vale ressaltar que o SwiftUI fornece seu próprio conjunto de controladores de visualização, como <span class="highlight">UIViewControllerRepresentable</span>, que permite envolver controladores de visualização UIKit e usá-los dentro do SwiftUI. Dessa forma, você pode aproveitar o poder do UIKit juntamente com o SwiftUI.</p>
+            
+                <p>Em resumo, coordenadores e controladores não são específicos do SwiftUI, mas podem ser usados em conjunto com o SwiftUI para lidar com navegação, integrar-se com UIKit e gerenciar o comportamento das visualizações do seu aplicativo.</p>
+            </div>
+            
+            <div id="swiftui-file-structure-section" class="section">
+                <h2>Estrutura Básica de um Arquivo com Visualização SwiftUI</h2>
+                <p>Ao criar um arquivo com uma visualização SwiftUI, você geralmente segue uma estrutura básica que consiste em importar frameworks necessários, definir o struct da visualização e implementar a propriedade <span class="highlight">body</span>. Aqui está um exemplo da estrutura básica:</p>
+            
+                <pre style="background-color: #191970; padding: 10px; border-radius: 5px; overflow-x: auto;">><code class="language-swift">
+            <span class="keyword">import</span> SwiftUI
+            
+            <span class="keyword">struct</span> MyView: <span class="type">View</span> {
+                <span class="keyword">var</span> body: <span class="type">some</span> <span class="type">View</span> {
+                    // Conteúdo da sua visualização vai aqui
+                    <span class="keyword">Text</span>("Hello, SwiftUI!")
+                }
+            }
+                </code></pre>
+            
+                <p>Vamos detalhar a estrutura:</p>
+            
+                <ul>
+                    <li><strong>Importando o SwiftUI</strong>: A declaração <span class="highlight">import SwiftUI</span> é usada para importar o framework SwiftUI, que fornece os componentes e funcionalidades necessários para construir visualizações SwiftUI.</li>
+                    
+                    <li><strong>Definindo o Struct da Visualização</strong>: Você define um struct que adere ao protocolo <span class="type">View</span>. Esse struct representa sua visualização SwiftUI. No exemplo acima, o struct da visualização é nomeado <span class="identifier">MyView</span>.</li>
+                    
+                    <li><strong>Implementando a Propriedade Body</strong>: Dentro do struct da visualização, você implementa a propriedade <span class="highlight">body</span>. A propriedade <span class="highlight">body</span> é uma propriedade computada que retorna um tipo <span class="type">View</span>. Ela representa o conteúdo e o layout da sua visualização. No exemplo acima, a propriedade <span class="highlight">body</span> retorna uma visualização <span class="keyword">Text</span> que exibe o texto "Hello, SwiftUI!".</li>
+                </ul>
+            
+                <p>Essa estrutura básica estabelece a fundação para criar uma visualização SwiftUI. Você pode adicionar mais visualizações, modificadores e funcionalidades para personalizar ainda mais sua visualização. A sintaxe declarativa do SwiftUI permite que você descreva facilmente a interface de usuário e o comportamento desejado do seu aplicativo.</p>
+            
+                <h2>Usando Funções para Criar Componentes Reutilizáveis</h2>
+                <p>No SwiftUI, você pode usar funções para criar componentes reutilizáveis e encapsular a lógica da visualização. Funções podem ser usadas para definir e retornar visualizações, assim como no Jetpack Compose para Android.</p>
+            
+                <p>Aqui está um exemplo de uso de uma função para definir um componente reutilizável em SwiftUI:</p>
+            
+                <pre style="background-color: #191970; padding: 10px; border-radius: 5px; overflow-x: auto;"><code class="language-swift">
+            <span class="keyword">import</span> SwiftUI
+            
+            <span class="keyword">func</span> MyReusableComponent() -> <span class="type">some</span> <span class="type">View</span> {
+                // Conteúdo do seu componente reutilizável vai aqui
+                <span class="keyword">Text</span>("Hello from a reusable component!")
+            }
+                </code></pre>
+            
+                <p>Você pode então usar essa função para criar instâncias do componente reutilizável sempre que necessário:</p>
+            
+                <pre style="background-color: #191970; padding: 10px; border-radius: 5px; overflow-x: auto;"><code class="language-swift">
+            <span class="keyword">struct</span> ContentView: <span class="type">View</span> {
+                <span class="keyword">var</span> body: <span class="type">some</span> <span class="type">View</span> {
+                    <span class="keyword">VStack</span> {
+                        MyReusableComponent()
+                        <span class="keyword">Text</span>("Other content")
+                    }
+                }
+            }
+                </code></pre>
+            
+                <p>Usar funções no SwiftUI pode ajudar a criar código modular e reutilizável. Isso pode ser particularmente útil no contexto de um projeto Kotlin Multiplatform (KMP), onde você deseja aproveitar a mesma implementação de visualização em ambas as plataformas Android e iOS.</p>
+            
+                <p>Em um projeto KMP, você pode definir sua lógica e componentes de visualização compartilhados em Kotlin e, em seguida, usar funções para fazer a ponte entre o código Kotlin compartilhado e o código SwiftUI específico da plataforma. Dessa forma, você pode reutilizar a mesma implementação de visualização em ambas as plataformas Android e iOS, enquanto ainda aproveita o poder e a flexibilidade do SwiftUI no iOS.</p>
+            
+                <p>Ao usar funções para definir suas visualizações, você pode alcançar um nível semelhante de reutilização de código e consistência como faria com o Jetpack Compose em um projeto Android.</p>
+            </div>
+
+            <div id="swiftui-view-modifiers-section" class="section">
+                <h2>Modificadores de Visualização no SwiftUI</h2>
+                <p>No SwiftUI, os modificadores de visualização são uma maneira poderosa de modificar a aparência ou o comportamento de uma visualização. Eles permitem aplicar transformações, estilização ou funcionalidades a uma visualização ou a um grupo de visualizações. Os modificadores de visualização podem ser encadeados para criar configurações complexas e reutilizáveis de visualizações.</p>
+            
+                <p>Para criar um modificador de visualização personalizado, você pode definir uma função que recebe uma visualização como entrada e retorna uma versão modificada dessa visualização. Aqui está um exemplo:</p>
+            
+                <pre style="background-color: #191970; padding: 10px; border-radius: 5px; overflow-x: auto;">><code class="language-swift">
+            <span class="keyword">import</span> SwiftUI
+            
+            <span class="keyword">struct</span> MyCustomModifier: <span class="type">ViewModifier</span> {
+                <span class="keyword">func</span> body(content: <span class="type">Content</span>) -> <span class="type">some</span> <span class="type">View</span> {
+                    content
+                        .<span class="keyword">foregroundColor</span>(.<span class="value">blue</span>)
+                        .<span class="keyword">font</span>(.<span class="value">title</span>)
+                        .<span class="keyword">padding</span>()
+                        .<span class="keyword">background</span>(<span class="type">Color</span>.<span class="value">yellow</span>)
+                        .<span class="keyword">cornerRadius</span>(<span class="value">10</span>)
+                }
+            }
+                </code></pre>
+            
+                <p>No exemplo acima, definimos um modificador de visualização personalizado chamado <span class="identifier">MyCustomModifier</span> que aplica um conjunto de modificações à visualização a que é aplicado. A função <span class="keyword">body</span> recebe a visualização de entrada (<span class="type">content</span>) e retorna uma versão modificada dela. Neste caso, aplicamos uma cor de primeiro plano azul, uma fonte de título, preenchimento, uma cor de fundo amarela e um raio de canto de 10.</p>
+            
+                <p>Para usar o modificador personalizado, você pode aplicá-lo a uma visualização usando o modificador <span class="keyword">.modifier()</span>:</p>
+            
+                <pre style="background-color: #191970; padding: 10px; border-radius: 5px; overflow-x: auto;">><code class="language-swift">
+            <span class="keyword">struct</span> ContentView: <span class="type">View</span> {
+                <span class="keyword">var</span> body: <span class="type">some</span> <span class="type">View</span> {
+                    <span class="keyword">Text</span>("Hello, SwiftUI!")
+                        .<span class="keyword">modifier</span>(MyCustomModifier())
+                }
+            }
+                </code></pre>
+            
+                <p>No exemplo acima, aplicamos o <span class="identifier">MyCustomModifier</span> a uma visualização <span class="keyword">Text</span>, o que modifica a aparência do texto de acordo com as modificações definidas no modificador personalizado.</p>
+            
+                <p>Os modificadores de visualização são um aspecto chave da sintaxe declarativa do SwiftUI e permitem encapsular e reutilizar configurações de visualização em todo o seu aplicativo. Você pode criar seus próprios modificadores personalizados ou usar os modificadores integrados fornecidos pelo SwiftUI para estilizar e modificar suas visualizações.</p>
+            </div>
+            
+            <div id="swiftui-stacks-section" class="section">
+                <h2>Containers de Layout no SwiftUI: <code>VStack</code> e <code>HStack</code></h2>
+                
+                <p>No SwiftUI, <code>VStack</code> é uma visualização contêiner que organiza suas visualizações filhas verticalmente em uma pilha. O "V" em <code>VStack</code> significa vertical, indicando que as visualizações filhas são empilhadas verticalmente de cima para baixo.</p>
+            
+                <p>Aqui está um exemplo de uso de <code>VStack</code> para organizar várias visualizações verticalmente:</p>
+            
+                <pre style="background-color: #191970; padding: 10px; border-radius: 5px; overflow-x: auto;">><code class="language-swift">
+            <span class="keyword">import</span> SwiftUI
+            
+            <span class="keyword">struct</span> ContentView: <span class="type">View</span> {
+                <span class="keyword">var</span> body: <span class="type">some</span> <span class="type">View</span> {
+                    <span class="keyword">VStack</span> {
+                        <span class="keyword">Text</span>("First View")
+                        <span class="keyword">Text</span>("Second View")
+                        <span class="keyword">Text</span>("Third View")
+                    }
+                }
+            }
+                </code></pre>
+            
+                <p>No exemplo acima, temos um <code>VStack</code> que contém três visualizações <span class="keyword">Text</span>. Quando o <code>VStack</code> é renderizado, as visualizações <span class="keyword">Text</span> serão empilhadas verticalmente na ordem em que são definidas.</p>
+            
+                <p><code>VStack</code> ajusta automaticamente o tamanho das suas visualizações filhas com base no conteúdo e no espaço disponível. Por padrão, as visualizações filhas são centralizadas horizontalmente dentro do <code>VStack</code>, mas você pode aplicar modificadores adicionais para personalizar o alinhamento, o espaçamento e outras propriedades do <code>VStack</code> e suas visualizações filhas.</p>
+            
+                <p>Você também pode aninhar múltiplos <code>VStacks</code> ou combiná-los com outras visualizações contêiner, como <code>HStack</code> (pilha horizontal) ou <code>ZStack</code> (pilha no eixo z), para criar layouts mais complexos.</p>
+            
+                <p><code>VStack</code> é um contêiner de layout fundamental no SwiftUI e é comumente usado para organizar visualizações verticalmente em uma pilha. Ele fornece uma maneira simples e intuitiva de estruturar sua interface de usuário e controlar o alinhamento vertical das suas visualizações.</p>
+            
+                <p>Peço desculpas pela confusão. Você está correto. Para remover o espaçamento padrão entre as visualizações filhas em um <code>VStack</code>, você pode usar o parâmetro <code>spacing</code> ao criar o <code>VStack</code> e defini-lo como zero.</p>
+            
+                <p>Aqui está um exemplo de como você pode remover o espaçamento padrão em um <code>VStack</code>:</p>
+            
+                <pre style="background-color: #191970; padding: 10px; border-radius: 5px; overflow-x: auto;">><code class="language-swift">
+            <span class="keyword">import</span> SwiftUI
+            
+            <span class="keyword">struct</span> ContentView: <span class="type">View</span> {
+                <span class="keyword">var</span> body: <span class="type">some</span> <span class="type">View</span> {
+                    <span class="keyword">VStack</span>(<span class="keyword">spacing</span>: <span class="value">0</span>) {
+                        <span class="keyword">Text</span>("First View")
+                        <span class="keyword">Text</span>("Second View")
+                        <span class="keyword">Text</span>("Third View")
+                    }
+                }
+            }
+                </code></pre>
+            
+                <p>No exemplo acima, criamos o <code>VStack</code> com o parâmetro <code>spacing</code> definido como <span class="value">0</span>. Isso garante que não haja espaçamento entre as visualizações filhas dentro do <code>VStack</code>.</p>
+            
+                <p>Usando <code>VStack(spacing: 0)</code>, você pode remover o espaçamento padrão e obter uma disposição mais compacta das visualizações filhas dentro da pilha.</p>
+            
+                <p>No SwiftUI, <code>HStack</code> é uma visualização contêiner que organiza suas visualizações filhas horizontalmente em uma pilha. O "H" em <code>HStack</code> significa horizontal, indicando que as visualizações filhas são empilhadas horizontalmente da liderança para a trilha.</p>
+            
+                <p>Aqui está um exemplo de uso de <code>HStack</code> para organizar várias visualizações horizontalmente:</p>
+            
+                <pre style="background-color: #191970; padding: 10px; border-radius: 5px; overflow-x: auto;">><code class="language-swift">
+            <span class="keyword">import</span> SwiftUI
+            
+            <span class="keyword">struct</span> ContentView: <span class="type">View</span> {
+                <span class="keyword">var</span> body: <span class="type">some</span> <span class="type">View</span> {
+                    <span class="keyword">HStack</span> {
+                        <span class="keyword">Text</span>("Left View")
+                        <span class="keyword">Text</span>("Center View")
+                        <span class="keyword">Text</span>("Right View")
+                    }
+                }
+            }
+                </code></pre>
+            
+                <p>No exemplo acima, temos um <code>HStack</code> que contém três visualizações <span class="keyword">Text</span>. Quando o <code>HStack</code> é renderizado, as visualizações <span class="keyword">Text</span> serão empilhadas horizontalmente na ordem em que são definidas.</p>
+            
+                <p>Semelhante ao <code>VStack</code>, o <code>HStack</code> ajusta automaticamente o tamanho das suas visualizações filhas com base no conteúdo e no espaço disponível. Por padrão, as visualizações filhas são centralizadas verticalmente dentro do <code>HStack</code>, mas você pode aplicar modificadores adicionais para personalizar o alinhamento, o espaçamento e outras propriedades do <code>HStack</code> e suas visualizações filhas.</p>
+            
+                <p>Você também pode aninhar múltiplos <code>HStacks</code> ou combiná-los com outras visualizações contêiner, como <code>VStack</code> ou <code>ZStack</code>, para criar layouts mais complexos.</p>
+            
+                <p><code>HStack</code> é um contêiner de layout fundamental no SwiftUI e é comumente usado para organizar visualizações horizontalmente em uma pilha. Ele fornece uma maneira simples e intuitiva de estruturar sua interface de usuário e controlar o alinhamento horizontal das suas visualizações.</p>
+            </div>
+            
+            <div id="xcode-search-features-section" class="section">
+                <h2>Funcionalidades de Pesquisa no Xcode 15</h2>
+                
+                <p>No Xcode 15, você pode pesquisar por arquivos específicos, variáveis ou nomes de métodos dentro do seu workspace usando a funcionalidade de pesquisa. Veja como você pode fazer isso:</p>
+            
+                <ol>
+                    <li>Abra seu projeto/workspace no Xcode.</li>
+                    <li>Procure pela barra de pesquisa no canto superior direito da janela do Xcode.</li>
+                    <li>Clique na barra de pesquisa para ativá-la.</li>
+                    <li>Digite o nome do arquivo, variável ou método que você deseja pesquisar.</li>
+                    <li>À medida que você digita, o Xcode começará a exibir os resultados da pesquisa em tempo real.</li>
+                </ol>
+            
+                <p>Você pode refinar sua pesquisa selecionando filtros específicos, como "Em Workspace" para pesquisar em todo o projeto, "No Projeto" para pesquisar no projeto atualmente selecionado ou "No Arquivo" para pesquisar no arquivo atualmente selecionado.</p>
+            
+                <p>Além disso, você pode usar o <strong>"Find Navigator"</strong> para realizar buscas mais avançadas. Para acessá-lo, vá em <strong>"View" -> "Navigators" -> "Show Find Navigator"</strong> ou use o atalho de teclado <span style="color: #FF4500;">Cmd + 3</span>. O Find Navigator fornece uma interface de busca mais detalhada onde você pode especificar opções de pesquisa, pesquisar dentro de escopos específicos e salvar consultas de pesquisa para uso futuro.</p>
+            
+                <p>Espero que isso ajude! Deixe-me saber se você tem mais perguntas.</p>
+            
+                <h3>Atalhos Úteis para Pesquisa no Xcode</h3>
+                
+                <p>Sim, o Xcode oferece vários atalhos para tornar a pesquisa mais eficiente. Aqui estão alguns atalhos úteis para pesquisa no Xcode:</p>
+                
+                <ul>
+                    <li><span style="color: #FF4500;">Cmd + F</span>: Este atalho ativa a barra de pesquisa no editor do Xcode, permitindo pesquisar um termo específico dentro do arquivo atual.</li>
+                    <li><span style="color: #FF4500;">Cmd + Shift + F</span>: Este atalho abre a pesquisa global no Xcode, permitindo pesquisar um termo em todo o workspace.</li>
+                    <li><span style="color: #FF4500;">Cmd + Shift + O</span>: Este atalho abre o diálogo "Open Quickly", onde você pode pesquisar arquivos, classes, símbolos e mais dentro do seu projeto.</li>
+                    <li><span style="color: #FF4500;">Cmd + Shift + J</span>: Este atalho pula para a linha de código onde o resultado da pesquisa atual está localizado.</li>
+                    <li><span style="color: #FF4500;">Cmd + Shift + E</span>: Este atalho expande os resultados da pesquisa para mostrar todas as ocorrências do termo de pesquisa no arquivo atual.</li>
+                    <li><span style="color: #FF4500;">Cmd + G</span>: Este atalho encontra a próxima ocorrência do termo de pesquisa dentro do arquivo atual.</li>
+                    <li><span style="color: #FF4500;">Cmd + Shift + G</span>: Este atalho encontra a ocorrência anterior do termo de pesquisa dentro do arquivo atual.</li>
+                </ul>
+            
+                <p>Esses atalhos podem ajudar você a navegar e pesquisar dentro do seu código de forma mais eficiente. Sinta-se à vontade para experimentá-los e ver quais funcionam melhor para seu fluxo de trabalho.</p>
+            
+                <h3>Encontrar Argumentos de Funções no Xcode</h3>
+                
+                <p>Sim, no Xcode, você pode descobrir facilmente quais argumentos uma função espera usando o recurso de conclusão de código. Veja como você pode fazer isso:</p>
+                
+                <ol>
+                    <li>Comece a digitar o nome da função que você deseja chamar.</li>
+                    <li>À medida que você digita, o Xcode exibirá uma lista de sugestões em um menu suspenso.</li>
+                    <li>Procure a função que você está interessado e selecione-a na lista.</li>
+                    <li>Depois de selecionar a função, o Xcode exibirá uma dica ou um popup de conclusão de código que fornece informações sobre a assinatura da função, incluindo os argumentos esperados.</li>
+                </ol>
+            
+                <p>A dica ou popup de conclusão de código geralmente exibe o nome da função, seu tipo de retorno e os nomes e tipos dos argumentos que ela espera. Essas informações podem ajudar você a entender como chamar corretamente a função e fornecer os argumentos necessários.</p>
+            
+                <p>Além disso, você também pode usar o recurso de documentação do Xcode para obter informações mais detalhadas sobre uma função, incluindo seus argumentos, tipo de retorno e exemplos de uso. Para acessar a documentação, simplesmente pressione a tecla <span style="color: #FF4500;">Option</span> e clique no nome da função, ou use o inspetor <strong>"Quick Help"</strong> no Xcode.</p>
+            
+                <p>Aproveitando esses recursos, você pode explorar e entender facilmente os argumentos esperados de uma função no Xcode.</p>
+            
+                <h3>Usando o Recurso "Quick Help" no Xcode</h3>
+                
+                <p>Sim, no Xcode, você pode usar o recurso <strong>"Quick Help"</strong> para visualizar rapidamente a documentação e as informações sobre parâmetros de uma função ou método. O atalho de teclado padrão para acessar o Quick Help é <span style="color: #FF4500;">Option + Click</span>.</p>
+            
+                <p>Aqui está como você pode usá-lo:</p>
+                
+                <ol>
+                    <li>Coloque o cursor no nome da função ou método sobre o qual você deseja saber mais.</li>
+                    <li>Mantenha pressionada a tecla <span style="color: #FF4500;">Option</span> no teclado.</li>
+                    <li>Enquanto mantém pressionada a tecla <span style="color: #FF4500;">Option</span>, clique no nome da função ou método.</li>
+                </ol>
+            
+                <p>Isso abrirá um popup de Quick Help que exibe informações detalhadas sobre a função ou método selecionado, incluindo seus parâmetros, tipo de retorno e qualquer documentação adicional.</p>
+            
+                <p>Alternativamente, você também pode usar o atalho <span style="color: #FF4500;">Control + Command + / (barra)</span> para abrir o inspetor Quick Help, que fornece uma visualização mais detalhada da documentação e informações sobre parâmetros.</p>
+            
+                <p>Esses atalhos permitem acessar rapidamente a documentação e os detalhes dos parâmetros de uma função ou método no Xcode, ajudando você a entender seu uso e argumentos esperados.</p>
+            </div>
+            
+            <div id="kmp-expect-actual-section" class="section">
+                <h2>Declarações <span class="keyword">expect</span> e <span class="keyword">actual</span> no Kotlin Multiplatform</h2>
+                <p>Certamente! As declarações <span class="keyword">expect</span> e <span class="keyword">actual</span> no Kotlin Multiplatform (KMP) são usadas para definir um contrato no código compartilhado e fornecer implementações específicas para diferentes plataformas. Vamos explorar mais detalhes:</p>
+                
+                <h3>Declarações <span class="keyword">expect</span></h3>
+                <p>Uma declaração <span class="keyword">expect</span> é usada para declarar uma API ou funcionalidade que se espera que seja implementada no código específico da plataforma.</p>
+                <ul style="padding-left: 20px; line-height: 1.6;">
+                    <li>Define um contrato ou uma interface que o código específico da plataforma deve seguir.</li>
+                    <li>A declaração <span class="keyword">expect</span> é escrita no código compartilhado e serve como um espaço reservado para a implementação real.</li>
+                    <li>Pode incluir declarações de funções, declarações de propriedades ou declarações de classes.</li>
+                </ul>
+                <p>Por exemplo, no código compartilhado, você pode ter uma declaração <span class="keyword">expect</span> para uma função que recupera o nível de bateria atual do dispositivo:</p>
+                
+                <pre style="background-color: #191970; padding: 10px; border-radius: 5px; overflow-x: auto;">
+                    <code class="language-kotlin">
+                        <span class="keyword">expect</span> fun getBatteryLevel(): Int
+                    </code>
+                </pre>
+                
+                <h3>Declarações <span class="keyword">actual</span></h3>
+                <p>Uma declaração <span class="keyword">actual</span> é usada para fornecer a implementação real da API esperada no código específico da plataforma.</p>
+                <ul style="padding-left: 20px; line-height: 1.6;">
+                    <li>É usada para cumprir o contrato definido pela declaração <span class="keyword">expect</span>.</li>
+                    <li>A declaração <span class="keyword">actual</span> é escrita no código específico da plataforma e fornece a implementação específica para essa plataforma.</li>
+                    <li>Deve ter a mesma assinatura (nome da função, parâmetros, tipo de retorno) que a declaração <span class="keyword">expect</span> correspondente.</li>
+                </ul>
+                <p>Por exemplo, no código específico do Android, você pode fornecer a implementação real para a função <span class="identifier">getBatteryLevel()</span>:</p>
+                
+                <pre style="background-color: #191970; padding: 10px; border-radius: 5px; overflow-x: auto;">
+                    <code class="language-kotlin">
+                        <span class="keyword">actual</span> fun getBatteryLevel(): Int {
+                            // Implementação específica para Android para recuperar o nível de bateria
+                            // ...
+                        }
+                    </code>
+                </pre>
+                
+                <p>E no código específico do iOS, você pode fornecer uma implementação diferente para a mesma função:</p>
+                
+                <pre style="background-color: #191970; padding: 10px; border-radius: 5px; overflow-x: auto;">
+                    <code class="language-kotlin">
+                        <span class="keyword">actual</span> fun getBatteryLevel(): Int {
+                            // Implementação específica para iOS para recuperar o nível de bateria
+                            // ...
+                        }
+                    </code>
+                </pre>
+                
+                <p>Ao usar as declarações <span class="keyword">expect</span> e <span class="keyword">actual</span>, você pode definir um contrato no código compartilhado e fornecer implementações específicas para diferentes plataformas. Isso permite que você escreva código que pode ser compartilhado entre plataformas enquanto ainda acomoda diferenças ou requisitos específicos de cada plataforma. O compilador garante que o código específico da plataforma forneça as implementações necessárias para as APIs esperadas e permite acessar o código compartilhado a partir do código específico da plataforma de forma contínua.</p>
+                
+                <h3>Interação entre <span class="keyword">expect</span> e <span class="keyword">actual</span></h3>
+                <p>A interação entre as declarações <span class="keyword">expect</span> e <span class="keyword">actual</span> no Kotlin Multiplatform (KMP) ocorre em tempo de compilação, e não em tempo de execução. Vamos entender como essa interação funciona:</p>
+                <ul style="padding-left: 20px; line-height: 1.6;">
+                    <li><strong>Processo de Compilação</strong>: Quando você constrói um projeto Kotlin Multiplatform, o código compartilhado e o código específico da plataforma são compilados separadamente para cada plataforma alvo (por exemplo, JVM, JavaScript, Android, iOS). Durante o processo de compilação, o compilador verifica as declarações <span class="keyword">expect</span> no código compartilhado e garante que haja uma declaração <span class="keyword">actual</span> correspondente no código específico da plataforma para cada plataforma alvo. O compilador verifica se as declarações <span class="keyword">actual</span> têm a mesma assinatura (nome da função, parâmetros, tipo de retorno) que as declarações <span class="keyword">expect</span> correspondentes.</li>
+                    <li><strong>Implementação Específica da Plataforma</strong>: O código específico da plataforma fornece a implementação real para as declarações <span class="keyword">expect</span>. Para cada plataforma alvo, o compilador inclui o código específico da plataforma que contém as declarações <span class="keyword">actual</span> durante o processo de compilação. A implementação específica da plataforma é compilada no binário final ou artefato específico para essa plataforma.</li>
+                    <li><strong>Uso em Tempo de Execução</strong>: Em tempo de execução, quando o código compartilhado chama uma função ou acessa uma propriedade que é declarada como <span class="keyword">expect</span>, a implementação específica da plataforma fornecida pela declaração <span class="keyword">actual</span> é invocada. A implementação específica que é executada depende da plataforma na qual o código está sendo executado. O código compartilhado não precisa estar ciente dos detalhes específicos da plataforma; ele simplesmente usa as declarações <span class="keyword">expect</span> como se estivessem implementadas diretamente no código compartilhado.</li>
+                </ul>
+                
+                <p>Ao separar o código compartilhado do código específico da plataforma e usar declarações <span class="keyword">expect</span> e <span class="keyword">actual</span>, o Kotlin Multiplatform permite que você escreva código que pode ser compartilhado entre plataformas enquanto ainda acomoda diferenças específicas da plataforma. O compilador garante que as implementações específicas da plataforma necessárias sejam fornecidas, e a implementação correta é invocada em tempo de execução com base na plataforma alvo.</p>
+            </div>
+            
+            <div id="pizza-chart-section" class="section">
+                <h2>Pizza Chart</h2>
+                <p>Abaixo está um gráfico de pizza representando três variáveis com valores fictícios:</p>
+                <div style="width: 400px; height: 400px; margin: 0 auto;">
+                    <canvas id="pizza-chart" style="padding-top: 20px;"></canvas>
+                </div>
+            
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                <script>
+                    const ctx = document.getElementById('pizza-chart').getContext('2d');
+                    const pizzaChart = new Chart(ctx, {
+                        type: 'pie',
+                        data: {
+                            labels: ['Variante A', 'Variante B', 'Variante C'],
+                            datasets: [{
+                                label: 'Distribuição de Variáveis',
+                                data: [25, 35, 40], // Valores fictícios
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(255, 206, 86, 0.2)'
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            plugins: {
+                                legend: {
+                                    position: 'top',
+                                },
+                                tooltip: {
+                                    callbacks: {
+                                        label: function(tooltipItem) {
+                                            return `${tooltipItem.label}: ${tooltipItem.raw}%`;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    });
+                </script>
+            </div>
+            
+            <div id="bullet-points-section" class="section" style="padding: 20px;">
+                <h2>Principais Pontos com Subpontos</h2>
+                <ul style="list-style-type: none; padding-left: 0;">
+                    <!-- Main Bullet Point 1 -->
+                    <li style="margin-bottom: 15px;">
+                        <strong class="highlight-yellow">Ponto Principal 1</strong>
+                        <ul style="list-style-type: none; padding-left: 20px;">
+                            <li><a href="https://www.google.com" target="_blank" class="highlight-cyan">Subponto 1.1</a></li>
+                            <li><a href="https://www.google.com" target="_blank" class="highlight-cyan">Subponto 1.2</a></li>
+                            <li><a href="https://www.google.com" target="_blank" class="highlight-cyan">Subponto 1.3</a></li>
+                            <li><a href="https://www.google.com" target="_blank" class="highlight-cyan">Subponto 1.4</a></li>
+                            <li><a href="https://www.google.com" target="_blank" class="highlight-cyan">Subponto 1.5</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Main Bullet Point 2 -->
+                    <li style="margin-bottom: 15px;">
+                        <strong class="highlight-red">Ponto Principal 2</strong>
+                        <ul style="list-style-type: none; padding-left: 20px;">
+                            <li><a href="https://www.google.com" target="_blank" class="highlight-green">Subponto 2.1</a></li>
+                            <li><a href="https://www.google.com" target="_blank" class="highlight-green">Subponto 2.2</a></li>
+                            <li><a href="https://www.google.com" target="_blank" class="highlight-green">Subponto 2.3</a></li>
+                            <li><a href="https://www.google.com" target="_blank" class="highlight-green">Subponto 2.4</a></li>
+                            <li><a href="https://www.google.com" target="_blank" class="highlight-green">Subponto 2.5</a></li>
+                        </ul>
+                    </li>
+            
+                    <!-- Main Bullet Point 3 -->
+                    <li style="margin-bottom: 15px;">
+                        <strong class="highlight-orange">Ponto Principal 3</strong>
+                        <ul style="list-style-type: none; padding-left: 20px;">
+                            <li><a href="https://www.google.com" target="_blank" class="highlight-yellow">Subponto 3.1</a></li>
+                            <li><a href="https://www.google.com" target="_blank" class="highlight-yellow">Subponto 3.2</a></li>
+                            <li><a href="https://www.google.com" target="_blank" class="highlight-yellow">Subponto 3.3</a></li>
+                            <li><a href="https://www.google.com" target="_blank" class="highlight-yellow">Subponto 3.4</a></li>
+                            <li><a href="https://www.google.com" target="_blank" class="highlight-yellow">Subponto 3.5</a></li>
+                        </ul>
+                    </li>
+            
+                    <!-- Main Bullet Point 4 -->
+                    <li style="margin-bottom: 15px;">
+                        <strong class="highlight-cyan">Ponto Principal 4</strong>
+                        <ul style="list-style-type: none; padding-left: 20px;">
+                            <li><a href="https://www.google.com" target="_blank" class="highlight-red">Subponto 4.1</a></li>
+                            <li><a href="https://www.google.com" target="_blank" class="highlight-red">Subponto 4.2</a></li>
+                            <li><a href="https://www.google.com" target="_blank" class="highlight-red">Subponto 4.3</a></li>
+                            <li><a href="https://www.google.com" target="_blank" class="highlight-red">Subponto 4.4</a></li>
+                            <li><a href="https://www.google.com" target="_blank" class="highlight-red">Subponto 4.5</a></li>
+                        </ul>
+                    </li>
+            
+                    <!-- Main Bullet Point 5 -->
+                    <li style="margin-bottom: 15px;">
+                        <strong class="highlight-green">Ponto Principal 5</strong>
+                        <ul style="list-style-type: none; padding-left: 20px;">
+                            <li><a href="https://www.google.com" target="_blank" class="highlight-orange">Subponto 5.1</a></li>
+                            <li><a href="https://www.google.com" target="_blank" class="highlight-orange">Subponto 5.2</a></li>
+                            <li><a href="https://www.google.com" target="_blank" class="highlight-orange">Subponto 5.3</a></li>
+                            <li><a href="https://www.google.com" target="_blank" class="highlight-orange">Subponto 5.4</a></li>
+                            <li><a href="https://www.google.com" target="_blank" class="highlight-orange">Subponto 5.5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+            
+            
+            
+        
+
+        </div>
+    </div>
+    <script>
+        function showSubsection(id) {
+            const subsections = document.querySelectorAll('.section');
+            subsections.forEach(subsection => {
+                if (subsection.id === id) {
+                    subsection.style.display = subsection.style.display === 'block' ? 'none' : 'block';
+                } else {
+                    subsection.style.display = 'none';
+                }
+            });
+        }
+
+        function toggleSection(id) {
+            const section = document.getElementById(id);
+            if (section.style.display === 'block') {
+                section.style.display = 'none';
+            } else {
+                section.style.display = 'block';
+                // Hide other sections when this one is shown
+                const otherSections = document.querySelectorAll('.nested');
+                otherSections.forEach(sec => {
+                    if (sec.id !== id) {
+                        sec.style.display = 'none';
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>
